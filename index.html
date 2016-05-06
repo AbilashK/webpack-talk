@@ -4,13 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>All about Webpack! - Abilash K</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -24,8 +25,107 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>All about Webpack!</section>
-				<section>Welcome</section>
+				<section>
+					All about Webpack!<br/>
+					<img src="/images/webpack-logo.gif" style="height:35%;width:35%"/><br/>
+				</section>
+				<section>
+					What is it anyway?<br/>
+					<pre><code data-trim>
+					// webpack.config.js
+module.exports = {
+	entry: './main.js',
+  output: {
+    filename: 'bundle.js'
+  }
+};
+					</code></pre>
+				</section>
+				<section>
+					Webpack is<br/>
+					<span class="fragment fade-in">A Module bundler</span><br/>
+					<span class="fragment fade-in">A Task runner</span><br/>
+					<span class="fragment fade-in">A Build system</span><br/>
+				</section>
+				<section>
+					What does it have?<br/>
+					<pre><code data-trim>
+					if (window.location.pathname === '/feed') {
+  showLoadingState();
+  require.ensure([], function() { // On demand load
+    hideLoadingState();
+    require('./feed').show();
+  });
+} else if (window.location.pathname === '/profile') {
+  showLoadingState();
+  require.ensure([], function() {
+    hideLoadingState();
+    require('./profile').show(); // Code splitting
+  });
+}
+					</code></pre>
+				</section>
+				<section>
+					Webpack can<br/>
+					<span class="fragment fade-in">Hot reload modules</span><br/>
+					<span class="fragment fade-in">Split code</span><br/>
+					<span class="fragment fade-in">Load scripts on demand</span><br/>
+				</section>
+				<section>
+					But it doesn't end there...<br/>
+					<pre><code data-trim>
+// webpack.config.js
+module.exports = {
+  entry: './main.js',
+  output: {
+    path: './build',
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+    // inline base64 URLs for <=8k images, direct URLs for the rest
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
+    ]
+  }
+};
+					</code></pre>
+				</section>
+				<section>
+					Webpack is extremely<br/>
+					<span class="fragment fade-in">Modular</span><br/>
+					<span class="fragment fade-in">Smart</span>
+					</span>
+				</section>
+				<section>
+					Loaders<br/>
+					<span class="fragment fade-in">Teach webpack what it does not know out of the box</span><br/>
+					<span class="fragment fade-in">Load all the things!</span><br/>
+					<span class="fragment fade-in">CSS, Images...</span>
+				</section>
+				<section>
+					Plugins<br/>
+					<span class="fragment fade-in">Injects into the build process</span><br/>
+				</section>
+				<section>
+					Feature Flags<br/>
+					<span class="fragment fade-in">Enable or disable parts of your app using global variables and environments</span><br/>
+				</section>
+				<section>
+					Handle common code<br/>
+					<span class="fragment fade-in">Identify common code and load them as a separate bundle automatically</span><br/>
+				</section>
+				<section>
+					Async loading<br/>
+					<span class="fragment fade-in">Load scripts only when they are needed with require.ensure()</span><br/>
+				</section>
+				<section>
+					<i class="fa fa-hand-spock-o fa-6" style="font-size:250px" aria-hidden="true"></i><br/><br/>
+					May your bundles "Live long and prosper"
+					<br/><br/>
+					<i class="fa fa-github-alt" aria-hidden="true"></i>/abilashk<br/>
+					<i class="fa fa-twitter" aria-hidden="true"></i>/abi1ity
+				</section>
 			</div>
 		</div>
 
